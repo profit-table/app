@@ -1,73 +1,71 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>noSite</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#0b1d3f">
+    <meta name="robots" content="noindex">
+    <title>ProfitTable · app mockup</title>
+    <link rel="icon" href="https://icon.profittable.ai/favicon.ico" sizes="32x32">
 
-    <link href='//fonts.googleapis.com/css?family=Lato:100' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="mock.css">
 
-    <link rel="apple-touch-icon" sizes="57x57" href="//thebackoffice.github.io/favicon/apple-icon-57x57.png">
-    <link rel="apple-touch-icon" sizes="60x60" href="//thebackoffice.github.io//favicon/apple-icon-60x60.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="//thebackoffice.github.io//favicon/apple-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="76x76" href="//thebackoffice.github.io//favicon/apple-icon-76x76.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="//thebackoffice.github.io//favicon/apple-icon-114x114.png">
-    <link rel="apple-touch-icon" sizes="120x120" href="//thebackoffice.github.io//favicon/apple-icon-120x120.png">
-    <link rel="apple-touch-icon" sizes="144x144" href="//thebackoffice.github.io//favicon/apple-icon-144x144.png">
-    <link rel="apple-touch-icon" sizes="152x152" href="//thebackoffice.github.io//favicon/apple-icon-152x152.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="//thebackoffice.github.io//favicon/apple-icon-180x180.png">
-    <link rel="icon" type="image/png" sizes="192x192" href="//thebackoffice.github.io//favicon/android-icon-192x192.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="//thebackoffice.github.io//favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="96x96" href="//thebackoffice.github.io//favicon/favicon-96x96.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="//thebackoffice.github.io//favicon/favicon-16x16.png">
-    <link rel="manifest" href="//thebackoffice.github.io//favicon/manifest.json">
-
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            width: 100%;
-            height: 100%;
-            color: #999999;
-            display: table;
-            font-weight: 100;
-            font-family: 'Lato';
-        }
-
-        .container {
-            text-align: center;
-            display: table-cell;
-            vertical-align: middle;
-        }
-
-        .content {
-            text-align: center;
-            display: inline-block;
-        }
-
-        .title {
-            font-size: 96px;
-            margin-bottom: 40px;
-        }
-
-        .title span{
-            color: #666666;
-        }
-
-        .quote {
-            font-size: 24px;
-            color: #333333;
-        }
-    </style>
+    <!--
+        MOCKUP — a prototype shortcut, not the real app.
+        Plain HTML/CSS/JS with invented data. The x- tags below are vanilla custom elements standing in for
+        the Vue 3 StateTag tags they would become in ProfitTable-sta. The page is the layout, as in an STA.
+    -->
+    <script src="data.js"></script>
+    <script src="mock.js" defer></script>
 </head>
+
 <body>
-<div class="container">
-    <div class="content">
-        <div class="title">no<span>Site</span></div>
-        <div class="quote">
-            status :: 200
-        </div>
-    </div>
+<div id="phone">
+
+    <!-- Overlays -->
+    <x-toast></x-toast>
+    <x-camera></x-camera>
+    <x-search></x-search>
+    <x-locations></x-locations>
+    <x-team></x-team>
+    <x-photo></x-photo>
+
+    <!-- 1 · Title bar -->
+    <header id="title-bar">
+        <h1><x-text-html locus="location.name"></x-text-html></h1>
+        <x-profile-menu></x-profile-menu>
+    </header>
+
+    <!-- 2 · Graphic space -->
+    <section id="graphic-space">
+        <x-savings-ring></x-savings-ring>
+        <x-over-chart></x-over-chart>
+    </section>
+
+    <!-- 3 · Report / linear space -->
+    <x-view-tabs></x-view-tabs>
+    <main id="linear-space">
+        <x-products></x-products>
+        <x-invoices></x-invoices>
+        <x-suppliers></x-suppliers>
+    </main>
+
+    <!-- 4 · Bottom navigation -->
+    <nav id="bottom-nav">
+        <button type="button" onclick="stateTagApp.commands.open('locations')" aria-label="Locations">
+            <x-icon name="store"></x-icon><span>Locations</span>
+        </button>
+        <button type="button" class="primary" onclick="stateTagApp.commands.openCamera()" aria-label="Photograph an invoice">
+            <x-icon name="camera"></x-icon><span>Scan</span>
+        </button>
+        <button type="button" onclick="stateTagApp.commands.open('search')" aria-label="Search">
+            <x-icon name="search"></x-icon><span>Search</span>
+        </button>
+        <button type="button" onclick="stateTagApp.commands.open('team')" aria-label="Team">
+            <x-icon name="team"></x-icon><span>Team</span>
+        </button>
+    </nav>
+
 </div>
 </body>
-<!-- is copilot running? -->
-
 </html>
-
