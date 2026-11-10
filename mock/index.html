@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#0b1d3f">
+    <meta name="robots" content="noindex">
+    <title>ProfitTable · app mockup</title>
+    <link rel="icon" href="https://icon.profittable.ai/favicon.ico" sizes="32x32">
+
+    <link rel="stylesheet" href="mock.css">
+
+    <!--
+        MOCKUP — a prototype shortcut, not the real app.
+        Plain HTML/CSS/JS with invented data. The x- tags below are vanilla custom elements standing in for
+        the Vue 3 StateTag tags they would become in ProfitTable-sta. The page is the layout, as in an STA.
+    -->
+    <script src="data.js"></script>
+    <script src="mock.js" defer></script>
+</head>
+
+<body>
+<div id="phone">
+
+    <!-- Overlays -->
+    <x-toast></x-toast>
+    <x-camera></x-camera>
+    <x-search></x-search>
+    <x-locations></x-locations>
+    <x-team></x-team>
+    <x-photo></x-photo>
+
+    <!-- 1 · Title bar -->
+    <header id="title-bar">
+        <h1><x-text-html locus="location.name"></x-text-html></h1>
+        <x-profile-menu></x-profile-menu>
+    </header>
+
+    <!-- 2 · Graphic space -->
+    <section id="graphic-space">
+        <x-savings-ring></x-savings-ring>
+        <x-over-chart></x-over-chart>
+    </section>
+
+    <!-- 3 · Report / linear space -->
+    <x-view-tabs></x-view-tabs>
+    <main id="linear-space">
+        <x-products></x-products>
+        <x-invoices></x-invoices>
+        <x-suppliers></x-suppliers>
+    </main>
+
+    <!-- 4 · Bottom navigation -->
+    <nav id="bottom-nav">
+        <button type="button" onclick="stateTagApp.commands.open('locations')" aria-label="Locations">
+            <x-icon name="store"></x-icon><span>Locations</span>
+        </button>
+        <button type="button" class="primary" onclick="stateTagApp.commands.openCamera()" aria-label="Photograph an invoice">
+            <x-icon name="camera"></x-icon><span>Scan</span>
+        </button>
+        <button type="button" onclick="stateTagApp.commands.open('search')" aria-label="Search">
+            <x-icon name="search"></x-icon><span>Search</span>
+        </button>
+        <button type="button" onclick="stateTagApp.commands.open('team')" aria-label="Team">
+            <x-icon name="team"></x-icon><span>Team</span>
+        </button>
+    </nav>
+
+</div>
+</body>
+</html>
